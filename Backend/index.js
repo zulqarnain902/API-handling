@@ -4,7 +4,6 @@ import cors from "cors"
 const app = express();
 app.use(cors())
 app.use(express.json())
-
 app.get('/api/products', (req, res) => {
     const products = [ 
         {
@@ -39,7 +38,6 @@ app.get('/api/products', (req, res) => {
         }
     ];
 
-    // localhost:3000/api/products?search=metal
     if (req.query.search) {
         const filterProducts = products.filter(product => 
             product.name.toLowerCase().includes(req.query.search.toLowerCase())
